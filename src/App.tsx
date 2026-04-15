@@ -66,9 +66,9 @@ function ScalesSVG() {
       <rect x="22" y="40" width="116" height="4" rx="2" fill={C.navy} opacity="0.7"/>
       <line x1="34" y1="44" x2="34" y2="88" stroke={C.gold} strokeWidth="1.8" strokeDasharray="4,3"/>
       <line x1="126" y1="44" x2="126" y2="78" stroke={C.gold} strokeWidth="1.8" strokeDasharray="4,3"/>
-      <ellipse cx="34" cy="96" rx="22" ry="7" fill={C.navy} opacity="0.1" stroke={C.navy} strokeWidth="1.5" opacity="0.55"/>
+      <ellipse cx="34" cy="96" rx="22" ry="7" fill={C.navy} fillOpacity="0.1" stroke={C.navy} strokeWidth="1.5" opacity="0.55"/>
       <path d="M12 88 Q34 96 56 88" stroke={C.navy} strokeWidth="1.5" fill="none" opacity="0.55"/>
-      <ellipse cx="126" cy="86" rx="22" ry="7" fill={C.navy} opacity="0.1" stroke={C.navy} strokeWidth="1.5" opacity="0.55"/>
+      <ellipse cx="126" cy="86" rx="22" ry="7" fill={C.navy} fillOpacity="0.1" stroke={C.navy} strokeWidth="1.5" opacity="0.55"/>
       <path d="M104 78 Q126 86 148 78" stroke={C.navy} strokeWidth="1.5" fill="none" opacity="0.55"/>
       <circle cx="80" cy="28" r="9" fill={C.gold} opacity="0.85"/>
       <circle cx="80" cy="28" r="4.5" fill={C.goldLight}/>
@@ -119,7 +119,7 @@ function PhoneSVG() {
   )
 }
 
-function PersonSVG({ female = false }: { female?: boolean }) {
+function PersonSVG(_props: { female?: boolean } = {}) {
   return (
     <svg width="110" height="160" viewBox="0 0 110 160" fill="none" aria-hidden="true">
       <circle cx="55" cy="44" r="28" fill="rgba(255,255,255,0.12)" stroke={`rgba(196,147,63,0.4)`} strokeWidth="1"/>
@@ -670,7 +670,7 @@ function Attorneys() {
 ───────────────────────────────────────────────────────────────────────── */
 function FAQ() {
   const [ref, inView] = useInView(0.1)
-  const [open, setOpen] = useState(null)
+  const [open, setOpen] = useState<number | null>(null)
 
   const faqs = [
     { q: "初回相談は本当に無料ですか？",       a: "はい、初回30分の相談は完全無料です。相談後に依頼しないことも自由ですので、お気軽にご相談ください。" },
